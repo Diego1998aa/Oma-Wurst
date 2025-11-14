@@ -1,0 +1,247 @@
+/* Contenido para Stack.css */
+.stack-container {
+  position: relative;
+  perspective: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  min-height: 250px; /* Asegura un espacio mínimo */
+}
+
+.card-rotate {
+  position: absolute;
+  cursor: grab;
+}
+
+.card {
+  border-radius: 20px;
+  border: 5px solid var(--primary-color); /* Usa el color dorado de tu web */
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card-image {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.card:hover .play-icon-overlay {
+    opacity: 1;
+}
+
+.play-icon-overlay svg {
+    width: 60px;
+    height: 60px;
+    fill: var(--primary-color);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+/* === VIDEO MODAL PARA STACK === */
+#video-modal-stack {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
+}
+
+.video-modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 900px; /* Ancho máximo para el video */
+    background-color: transparent; /* Fondo transparente */
+    border-radius: 15px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.5);
+    overflow: hidden;
+}
+
+#stack-video-player {
+    display: block;
+    width: 100%;
+    height: auto; /* Mantiene la proporción del video */
+    max-height: 80vh; /* Altura máxima para que no ocupe toda la pantalla */
+    border-radius: 12px; /* Bordes redondeados internos */
+}
+
+#video-modal-stack .modal-close-btn {
+    position: absolute;
+    top: -15px; /* Ligeramente fuera para no superponer */
+    right: -15px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: #111;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    line-height: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2001; /* Asegura que esté por encima de todo */
+}
+
+#video-modal-stack .modal-close-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+    background-color: #fff;
+    color: var(--primary-color);
+}
+
+#video-modal-stack video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* --- ESTILOS DE MARCA PARA LOS CONTROLES DEL VIDEO (SOLUCIÓN DEFINITIVA) --- */
+
+/* Contenedor principal de los controles */
+#video-modal-stack video::-webkit-media-controls-enclosure {
+    background: none;
+}
+
+/* Panel de control con gradiente */
+#video-modal-stack video::-webkit-media-controls-panel {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+    padding: 0 15px;
+}
+
+/* Color del texto del tiempo */
+#video-modal-stack video::-webkit-media-controls-current-time-display,
+#video-modal-stack video::-webkit-media-controls-time-remaining-display {
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* Barra de progreso - PISTA DE FONDO */
+#video-modal-stack video::-webkit-media-controls-timeline {
+    -webkit-appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 250, 205, 0.3);
+    margin: 0 10px;
+}
+
+/* Barra de progreso - PARTE REPRODUCIDA (EL COLOR) */
+#video-modal-stack video::-webkit-media-controls-play-button + div > div::-webkit-progress-value {
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+/* El "pulgar" o bolita que se mueve en la barra de progreso */
+#video-modal-stack video::-webkit-media-controls-timeline::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--secondary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    margin-top: -5px;
+    transition: transform 0.2s ease;
+}
+#video-modal-stack video::-webkit-media-controls-timeline::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Barra de volumen */
+#video-modal-stack video::-webkit-media-controls-volume-slider {
+    -webkit-appearance: none;
+    width: 70px;
+    height: 5px;
+    background: rgba(255, 250, 205, 0.3);
+    border-radius: 5px;
+}
+
+#video-modal-stack video::-webkit-media-controls-volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 1px solid var(--secondary-color);
+    cursor: pointer;
+    margin-top: -3.5px;
+}
+
+
+/* Responsive styles for video modal */
+@media (max-width: 768px) {
+    #video-modal-stack .modal-content {
+        max-width: 95%;
+        max-height: 80%;
+        padding: 15px;
+    }
+
+    #video-modal-stack video {
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    #video-modal-stack .modal-content {
+        max-width: 98%;
+        max-height: 70%;
+        padding: 10px;
+    }
+
+    #video-modal-stack video {
+        max-height: 250px;
+    }
+
+    #video-modal-stack .modal-close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(0,0,0,0.5);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+    }
+
+    #video-modal-stack .modal-close-btn:hover {
+        background: rgba(212, 175, 55, 0.8);
+        color: #000;
+    }
+}
+
