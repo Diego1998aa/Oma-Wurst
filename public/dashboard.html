@@ -260,13 +260,13 @@
     <div id="dashboard-toast" class="dashboard-toast" aria-live="polite"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
+    <script type="module">
         // --- 1. CONFIGURACIÓN Y CONEXIÓN ---
-        const SUPABASE_URL = 'https://kvhvvfsdztamglnkhbsa.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2aHZ2ZnNkenRhbWdsbmtoYnNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEzMzk5MjYsImV4cCI6MjA2NjkxNTkyNn0.4SyQx5sHLymx-_r_KEqqH4S5-xxxBlXtU-YS9hsolnk';
-
         const { createClient } = supabase;
-        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabaseClient = createClient(
+            import.meta.env.VITE_SUPABASE_URL,
+            import.meta.env.VITE_SUPABASE_ANON_KEY
+        );
 
         // --- 2. ELEMENTOS DEL DOM ---
         const userEmailElement = document.getElementById('user-email');

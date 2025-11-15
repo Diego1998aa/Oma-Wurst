@@ -153,17 +153,16 @@ body {
         import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
 
         // --- 1. Configuración de Supabase ---
-        const SUPABASE_URL = 'https://kvhvvfsdztamglnkhbsa.supabase.co'; 
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt2aHZ2ZnNkenRhbWdsbmtoYnNhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEzMzk5MjYsImV4cCI6MjA2NjkxNTkyNn0.4SyQx5sHLymx-_r_KEqqH4S5-xxxBlXtU-YS9hsolnk';
+        const supabase = createClient(
+            import.meta.env.VITE_SUPABASE_URL,
+            import.meta.env.VITE_SUPABASE_ANON_KEY
+        );
 
         // --- 2. Elementos del DOM ---
         const loginForm = document.getElementById('login-form');
         const errorMessage = document.getElementById('error-message');
         
-        // --- 3. Inicialización del cliente de Supabase ---
-        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-        // --- 4. Lógica del Formulario ---
+        // --- 3. Lógica del Formulario ---
         loginForm.addEventListener('submit', async (event) => {
             event.preventDefault(); 
 

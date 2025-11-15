@@ -19,6 +19,7 @@ if (!CORREO_DESTINO) {
 }
 
 const resend = new Resend(RESEND_API_KEY!);
+const SUPABASE_URL = Deno.env.get("VITE_SUPABASE_URL") ?? "";
 
 serve(async (req) => {
   try {
@@ -47,7 +48,7 @@ serve(async (req) => {
       <div style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
         <div style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
           <div style="background-color: #c0232a; color: #ffffff; padding: 25px; text-align: center;">
-            <img src="https://kvhvvfsdztamglnkhbsa.supabase.co/storage/v1/object/public/assets/logo-oma-final.png" alt="Oma Wurst Logo" style="max-width: 150px; margin-bottom: 10px;">
+            <img src="${SUPABASE_URL}/storage/v1/object/public/assets/logo-oma-final.png" alt="Oma Wurst Logo" style="max-width: 150px; margin-bottom: 10px;">
             <h1 style="margin: 0; font-size: 28px; font-weight: bold;">Nuevo Mensaje desde tu Web</h1>
           </div>
           <div style="padding: 30px; line-height: 1.6;">
