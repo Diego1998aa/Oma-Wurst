@@ -193,6 +193,10 @@ onDomReady(() => {
         businessUserId = isBusinessUser ? (session?.user?.id || null) : null;
         document.body.classList.toggle('business-mode', isBusinessUser);
         document.body.classList.toggle('reservation-locked', !isBusinessUser);
+        // Muestra/oculta el botón del carrito según si hay sesión de negocio
+        if (cartToggle) {
+            cartToggle.hidden = !isBusinessUser;
+        }
         if (!isBusinessUser) {
             closeCart();
         }
@@ -227,7 +231,13 @@ onDomReady(() => {
     const cartModal = document.getElementById('cart-modal');
     const cartCloseBtn = cartModal?.querySelector('.modal-close-btn');
     const cartToggle = document.getElementById('cart-toggle');
+    // Ocultar por defecto para evitar parpadeo hasta resolver sesión
+    if (cartToggle) {
+        cartToggle.hidden = true;
+    }
 
+
+    
     function openCart() {
         if (!cartModal || !ensureBusinessAccess()) return;
         cartModal.classList.add('visible');
