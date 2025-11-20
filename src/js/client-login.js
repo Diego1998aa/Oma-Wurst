@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginButton = document.getElementById('login-button');
 
   if (!loginForm) {
-    console.warn('⚠ No se encontró #login-form en esta página.');
+    console.warn('⚠ No se encontró #login-form en la vista de clientes.');
     return;
   }
 
@@ -24,21 +24,20 @@ document.addEventListener('DOMContentLoaded', () => {
     errorMessage.textContent = '';
 
     try {
-      const { data, error } = await supabaseClient.auth.signInWithPassword({
+      const { error } = await supabaseClient.auth.signInWithPassword({
         email,
         password,
       });
 
       if (error) {
-        console.error('Error de inicio de sesión:', error.message);
+        console.error('Error de inicio de sesión para cliente:', error.message);
         errorMessage.textContent = 'Email o contraseña incorrectos.';
       } else {
-        console.log('Inicio de sesión exitoso! Redirigiendo...', data.user);
-        window.location.href = 'dashboard.html';
+        window.location.href = 'index.html';
       }
     } catch (e) {
-      console.error('Ocurrió un error inesperado:', e);
-      errorMessage.textContent = 'No se pudo conectar con Supabase.';
+      console.error('No se pudo conectar con Supabase (cliente):', e);
+      errorMessage.textContent = 'No se pudo conectar con el servidor.';
     } finally {
       loginButton.disabled = false;
       loginButton.textContent = 'Ingresar';

@@ -1,0 +1,102 @@
+[
+  {
+    "id": "anticuchos",
+    "title": "Anticuchos para la parrilla Oma Wurst",
+    "category": "Parrilleros",
+    "description": "Anticuchos listos para la parrilla con el característico sabor chileno-alemán de Oma Wurst.",
+    "price": 8490,
+    "images": [
+      "/assets/productos/anticuchos/anticucho_01.jpg",
+      "/assets/productos/anticuchos/anticucho_02.jpg",
+      "/assets/productos/anticuchos/anticucho_03.jpg",
+      "/assets/productos/anticuchos/anticucho_04.jpg"
+    ]
+  },
+  {
+    "id": "arrollado",
+    "title": "Arrollado de Lomo Oma Wurst",
+    "category": "Especialidades",
+    "description": "Arrollado de lomo cuidadosamente aliñado y curado según la tradición familiar.",
+    "price": 8990,
+    "images": [
+      "/assets/productos/arrollado/arrollado_lomo1.jpg",
+      "/assets/productos/arrollado/arrollado_lomo2.jpg",
+      "/assets/productos/arrollado/arrollado_lomo3.jpg"
+    ]
+  },
+  {
+    "id": "cazuela",
+    "title": "Cazuela ahumada Oma Wurst",
+    "category": "Especialidades",
+    "description": "Cazuela ahumada al estilo Oma, ideal para los días fríos del sur de Chile.",
+    "price": 7990,
+    "images": [
+      "/assets/productos/cazuela/cazuela_ahumada01.jpg",
+      "/assets/productos/cazuela/cazuela_ahumada02.jpg"
+    ]
+  },
+  {
+    "id": "chorizo",
+    "title": "Chorizo Parrillero Oma Wurst",
+    "category": "Parrilleros",
+    "description": "Chorizo parrillero con un toque ahumado y especias seleccionadas.",
+    "price": 6990,
+    "images": [
+      "/assets/productos/chorizo/chorizo_parrillero.jpg"
+    ]
+  },
+  {
+    "id": "longaniza",
+    "title": "Longanizas Artesanales Oma Wurst",
+    "category": "Embutidos",
+    "description": "Longanizas artesanales elaboradas con recetas tradicionales chileno-alemanas.",
+    "price": 8490,
+    "images": [
+      "/assets/productos/longaniza/longaniza_oma.jpg",
+      "/assets/productos/longaniza/longaniza_oma2.jpg",
+      "/assets/productos/longaniza/longaniza_oma3.jpg",
+      "/assets/productos/longaniza/longaniza_oma4.jpg"
+    ]
+  },
+  {
+    "id": "pateteewurst",
+    "title": "Paté Teewurst para Untar",
+    "category": "Especialidades",
+    "description": "Paté Teewurst suave y cremoso, perfecto para untar en panes y galletas.",
+    "price": 5490,
+    "images": [
+      "/assets/productos/pateteewurst/pateteewurst_01.jpg"
+    ]
+  },
+  {
+    "id": "prietas",
+    "title": "Prietas Tradicionales Oma Wurst",
+    "category": "Embutidos",
+    "description": "Prietas tradicionales con el sabor intenso y especiado de la cocina de Oma.",
+    "price": 6990,
+    "images": [
+      "/assets/productos/prietas/Prietas-Oma.jpg"
+    ]
+  },
+  {
+    "id": "queso-cerdo",
+    "title": "Queso de Cerdo Oma Wurst",
+    "category": "Especialidades",
+    "description": "Queso de cerdo estilo alemán, ideal para tablas y picoteos.",
+    "price": 7590,
+    "images": [
+      "/assets/productos/quesodecerdo/quesocerdo_01.jpg",
+      "/assets/productos/quesodecerdo/quesocerdo_02.jpg"
+    ]
+  },
+  {
+    "id": "salchichas",
+    "title": "Salchichas Artesanales Oma Wurst",
+    "category": "Clásicos",
+    "description": "Salchichas artesanales ahumadas lentamente para lograr un sabor único.",
+    "price": 6290,
+    "images": [
+      "/assets/productos/salchichas/salchichas_oma.jpg"
+    ]
+  }
+]

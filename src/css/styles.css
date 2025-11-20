@@ -2946,7 +2946,7 @@ body.business-mode .btn-product-card.primary { display: inline-block; }
          flex-direction: column;
      }
  }
-.fade-content {}
+
 
 @media (prefers-reduced-motion: reduce) {
     .fade-content { transition: none !important; opacity: 1 !important; filter: none !important; }

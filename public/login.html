@@ -8,115 +8,212 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
-
+     <link rel="icon" type="image/png" href="/assets/logo-oma-final.png">
+     
     <style>
         :root {
             --primary-color: #d4af37;
-            --secondary-color: #fffacd;
-            --box-shadow-glow: 0 0 20px rgba(212, 175, 55, 0.5);
+            --primary-dark: #b1881e;
+            --secondary-color: #fff7db;
+            --text-color: #f7f2e7;
+            --border-color: rgba(212, 175, 55, 0.45);
+            --box-shadow-glow: 0 0 25px rgba(212, 175, 55, 0.35);
+            --input-bg: rgba(0, 0, 0, 0.45);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-
-    /* ▼▼▼ ESTILOS NUEVOS PARA EL FONDO ▼▼▼ */
-    background-image: url('assets/carrusel/frontis.jpg');
-    background-size: cover;      /* Para que la imagen cubra toda la pantalla */
-    background-position: center; /* Para que la imagen esté centrada */
-    background-repeat: no-repeat;/* Para que no se repita */
-    background-attachment: fixed;/* Para que la imagen no se mueva al hacer scroll */
-}
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 2rem;
+            color: var(--text-color);
+            background-image: linear-gradient(120deg, rgba(0,0,0,0.65), rgba(0,0,0,0.3)), url('assets/carrusel/frontis.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(212, 175, 55, 0.45), transparent 50%);
+            pointer-events: none;
+        }
         .glass-container {
-            width: 90%;
-            max-width: 420px;
-            padding: 40px;
+            width: min(420px, 95vw);
+            padding: 52px 48px 42px;
             position: relative;
-            z-index: 10;
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.4), var(--box-shadow-glow);
-            color: var(--secondary-color);
+            z-index: 1;
+            background: rgba(7, 7, 7, 0.75);
+            border-radius: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), var(--box-shadow-glow);
             text-align: center;
         }
+        .glass-container::before {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            border-radius: 26px;
+            padding: 1px;
+            background: linear-gradient(120deg, rgba(212, 175, 55, 0.65), rgba(255, 255, 255, 0.05));
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+        }
         .login-logo {
-            width: 80px;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.4));
+            width: 92px;
+            margin: 0 auto 1rem;
+            display: block;
+            filter: drop-shadow(0 10px 20px rgba(212, 175, 55, 0.35));
         }
         .login-title {
             font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            letter-spacing: 0.03em;
             color: var(--primary-color);
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+        }
+        .login-subtitle {
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 2.5rem;
+            margin-top: 0.25rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
         }
         .input-group {
             position: relative;
-            margin-bottom: 35px;
+            background: var(--input-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 18px 18px 10px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+        .input-group:focus-within {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15), var(--box-shadow-glow);
         }
         .input-group input {
             width: 100%;
-            padding: 10px 0;
-            font-size: 1rem;
-            color: var(--secondary-color);
+            font-size: 1.05rem;
+            color: var(--text-color);
             border: none;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.5);
             outline: none;
             background: transparent;
+            padding: 6px 0 0;
+            font-weight: 500;
+            letter-spacing: 0.02em;
         }
         .input-group label {
             position: absolute;
-            top: 0; left: 0;
-            padding: 10px 0;
-            font-size: 1rem;
-            color: var(--primary-color);
+            top: 14px;
+            left: 18px;
+            color: rgba(255, 255, 255, 0.6);
             pointer-events: none;
-            transition: .5s;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
         .input-group input:focus ~ label,
         .input-group input:valid ~ label {
-            top: -20px; left: 0;
-            color: var(--secondary-color);
-            font-size: 0.85rem;
+            top: 6px;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            color: var(--primary-color);
+        }
+        .input-group::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            padding: 1px;
+            background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.25));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .input-group:focus-within::after {
+            opacity: 1;
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.6) inset;
+            -webkit-text-fill-color: var(--text-color);
+            transition: background-color 5000s ease-in-out 0s;
         }
         .btn-login {
-            background: var(--primary-color);
-            color: #000;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
+            background: linear-gradient(120deg, var(--primary-color), #f7d86e);
+            color: #2b1d08;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.08rem;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 0.75rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         .btn-login:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--box-shadow-glow);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), var(--box-shadow-glow);
         }
         .btn-login:disabled {
-            background-color: #888;
+            background: #8d7c4a;
+            color: rgba(0, 0, 0, 0.65);
             cursor: not-allowed;
+            box-shadow: none;
         }
         #error-message {
-            color: #f87171;
-            margin-top: 15px;
             min-height: 20px;
             font-weight: 600;
+            background: rgba(248, 113, 113, 0.15);
+            border-left: 3px solid #f87171;
+            border-radius: 6px;
+            padding: 10px 14px;
+            color: #ffdede;
+        }
+        .register-link {
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+        .register-link a {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border 0.3s ease;
+        }
+        .register-link a:hover {
+            border-color: var(--primary-color);
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+            .glass-container {
+                padding: 38px 26px 34px;
+            }
+            .login-title {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -125,9 +222,10 @@ body {
 
 
     <div class="glass-container">
-        <img src="/public/assets/logo-oma-final.png" alt="Oma Wurst Logo" class="login-logo">
+        <img src="assets/logo-oma-final.png" alt="Oma Wurst Logo" class="login-logo">
         <h2 class="login-title">Acceso Admin</h2>
-        
+        <p class="login-subtitle">Accede a tu panel y mantén el sabor artesanal bajo control</p>
+
         <form id="login-form" novalidate>
             <div class="input-group">
                 <input type="email" id="email" name="email" required autocomplete="email">
@@ -142,59 +240,9 @@ body {
             <p id="error-message"></p>
         </form>
 
-        <div style="text-align: center; margin-top: 1.5rem;">
-            <p style="color: var(--secondary-color);">¿No tienes una cuenta de negocio? <a href="register.html" style="color: var(--primary-color); font-weight: bold;">Regístrate aquí</a></p>
-        </div>
+
     </div>
 
-    <!-- ▼▼▼ CAMBIO IMPORTANTE: Usamos un script de tipo "module" ▼▼▼ -->
-    <script type="module">
-        // Importamos la función 'createClient' directamente desde la CDN de Supabase
-        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
-
-        // --- 1. Configuración de Supabase ---
-        const supabase = createClient(
-            import.meta.env.VITE_SUPABASE_URL,
-            import.meta.env.VITE_SUPABASE_ANON_KEY
-        );
-
-        // --- 2. Elementos del DOM ---
-        const loginForm = document.getElementById('login-form');
-        const errorMessage = document.getElementById('error-message');
-        
-        // --- 3. Lógica del Formulario ---
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); 
-
-            const loginButton = document.getElementById('login-button');
-            loginButton.disabled = true;
-            loginButton.textContent = 'Ingresando...';
-            errorMessage.textContent = ''; 
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            try {
-                const { data, error } = await supabase.auth.signInWithPassword({
-                    email: email,
-                    password: password,
-                });
-
-                if (error) {
-                    console.error('Error de inicio de sesión:', error.message);
-                    errorMessage.textContent = 'Email o contraseña incorrectos.';
-                } else {
-                    console.log('Inicio de sesión exitoso! Redirigiendo...', data.user);
-                    window.location.href = 'dashboard.html';
-                }
-            } catch (e) {
-                console.error('Ocurrió un error inesperado:', e);
-                errorMessage.textContent = 'No se pudo conectar con Supabase.';
-            } finally {
-                loginButton.disabled = false;
-                loginButton.textContent = 'Ingresar';
-            }
-        });
-    </script>
+    <script type="module" src="/src/js/auth.js"></script>
 </body>
 </html>

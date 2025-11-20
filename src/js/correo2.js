@@ -1,4 +1,4 @@
-import { supabase } from './database.js';
+import { supabaseClient } from './database';
 
 document.addEventListener("DOMContentLoaded", function() {
     const contactForm = document.querySelector(".contact-form");
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
             mensaje: formData.get("message")  
         };
 
-        const { data, error } = await supabase
+        const { data, error } = await supabaseClient
             .from('contactos') 
             .insert([contactData]);
 

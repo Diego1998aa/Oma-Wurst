@@ -1,21 +1,26 @@
-// Import CSS
+// src/main.jsx
+
+// --- IMPORTACIONES ---
 import './css/styles.css';
 import './css/Stack.css';
 import 'swiper/css/bundle';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-// Import JS
-import './js/database.js';
+// Importamos scripts de funcionalidad (deja que script.js maneje los productos)
+import './js/database.js'; // Asegúrate de que database.js inicialice el cliente
 import './js/script.js';
 import './js/video-player.js';
 import './js/correo2.js';
 
-// Import and render React component
+// --- REACT ---
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Stack from './Stack.jsx';
 import FadeContent from './components/FadeContent.jsx';
 
+// ========================================================
+// === SOLO LOGICA DE REACT (GALERÍA STACK) ===
+// ========================================================
 const cardsData = [
     { id: 1, img: 'assets/historia/historia_01.jpg', type: 'image' },
     { id: 2, img: 'assets/historia/historia_02.jpg', type: 'image' },
@@ -36,3 +41,5 @@ if (stackRoot) {
     </React.StrictMode>,
   );
 }
+// ELIMINADO: Toda la lógica de loadPublicProducts y displayProducts que estaba aquí abajo.
+// Esa lógica ya existe y es mejor en script.js
